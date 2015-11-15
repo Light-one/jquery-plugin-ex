@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<p>안녕하세요.</p>
+	<a href="">링크</a>
+
+	<script type="text/javascript">
+	// jQuery.prototype
+	$.fn.alert = function(op){
+		var defaults = {
+			text : '옵션값이 없습니다.',
+			color : '#f00'
+		};
+
+		var opts = $.extend( {}, defaults, op);
+
+		this.element = $(this);
+		// === this.element = this;
+
+		this.element.text(opts.text);
+		this.element.css('color', opts.color);
+		// alert(this.element.text());
+	};
+
+	$('p').alert({
+		text: '오늘',
+		color: 'red'
+	});
+	$('a').alert({
+		text : '내일',
+		color: 'blue'
+	});
+	</script>
+</body>
+</html>
